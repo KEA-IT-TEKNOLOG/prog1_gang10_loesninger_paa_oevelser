@@ -35,4 +35,3 @@ while True:
             
         start = ticks_ms()
     sleep_ms(10)
-

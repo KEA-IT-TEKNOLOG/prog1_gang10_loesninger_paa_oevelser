@@ -11,14 +11,13 @@ educaboardets neopixels LED4 og LED5 hver gang ESP32 vækkes fra deepsleep.
 PIXEL_AMOUNT = 2
 PIXEL_GPIO = 26
 np = NeoPixel(Pin(PIXEL_GPIO, Pin.OUT), PIXEL_AMOUNT)
-# list with colors on or off
-colors = [255, 0]
-# set first pixel where R, G, B each gets random value of 255 or 0
-np[0] = (choice(colors),choice(colors),choice(colors))
-# set second pixel where R, G, B each gets random value of 255 or 0
-np[1] = (choice(colors),choice(colors),choice(colors))
+# list with tuples with RGB colors 
+colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]
+# use choice funktion to take random tuple from the list 
+np[0] = choice(colors) 
+np[1] = choice(colors)
 np.write()
-# sleep is inserted to more easely stop the program between deepsleep
+# sleep is inserted to give time to stop the program between deepsleep
 sleep(1) 
 # goint to deepsleep for 1000 miliseconds
 deepsleep(1000)
